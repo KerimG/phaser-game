@@ -16,5 +16,6 @@
 
     "moduleResolution": "node",
     "lib": ["dom", "esnext"]
-  }
+  },
+  "exclude": ["pwa", "webpack"]
 }
