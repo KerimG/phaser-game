@@ -9,9 +9,22 @@ export default class MainScene extends Phaser.Scene {
   }
 
   create() {
+    const logos: PhaserLogo[] = [];
     this.fpsText = new FpsText(this);
 
-    this.add.existing(new PhaserLogo(this, this.cameras.main.width / 2, 0));
+    for (let i = 0; i < 10; i++) {
+      logos.push(
+        new PhaserLogo(
+          this,
+          Phaser.Math.Between(0, this.cameras.main.width),
+          Phaser.Math.Between(0, this.cameras.main.height),
+        ),
+      );
+    }
+
+    this.add.group(logos, {
+      runChildUpdate: true,
+    });
 
     // display the Phaser.VERSION
     this.add
@@ -25,10 +38,6 @@ export default class MainScene extends Phaser.Scene {
   }
 
   update(time, delta) {
-    for (let i = 0; i < this.children.list.length; i++) {
-      const child = this.children.list[i];
-
-      child.update(delta);
-    }
+    this.fpsText.update();
   }
 }
