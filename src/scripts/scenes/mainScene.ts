@@ -10,9 +10,8 @@ export default class MainScene extends Phaser.Scene {
 
   create() {
     const logos: PhaserLogo[] = [];
-    this.fpsText = new FpsText(this);
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 10000; i++) {
       logos.push(
         new PhaserLogo(
           this,
@@ -33,8 +32,7 @@ export default class MainScene extends Phaser.Scene {
         fontSize: '24px',
       })
       .setOrigin(1, 0);
-
-    console.log(this);
+    this.fpsText = new FpsText(this);
   }
 
   update(time, delta) {
