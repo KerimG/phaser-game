@@ -5,6 +5,12 @@ import PreloadScene from './scenes/preloadScene';
 const DEFAULT_WIDTH = 1600;
 const DEFAULT_HEIGHT = 900;
 
+declare global {
+  interface Window {
+    environment: string;
+  }
+}
+
 const config = {
   type: Phaser.AUTO,
   backgroundColor: '#ffaaaa',
